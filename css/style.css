@@ -1,3 +1,48 @@
-body {
-    background-color: black;
+/* Apparence du plateau de jeu */
+
+.plateauJeu {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+
+/* Apparence des cartes de jeu */
+
+
+.carte { /* conteneur de la carte (face cachée et face révélée) */
+    height: 150px;
+    width: 150px;
+    margin: 2%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s ease;
+}
+
+.carteCachee, .carteRevelee {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    /* Stylisation de texte // à enlever une fois l'image faceCachee chargée */
+    line-height: 150px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    /**/
+    backface-visibility: hidden;
+} 
+
+.carteCachee {
+    background-color: teal;
+}
+
+.carteRevelee {
+    background-color: salmon;
+    transform: perspective(400px) rotateY(180deg);
+}
+
+
+.carte.flip { /* L'évènement qui se déclenche au clic */
+    transform: perspective(400px) rotateY(180deg);
+}
+
