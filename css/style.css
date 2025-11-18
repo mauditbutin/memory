@@ -15,7 +15,7 @@
     margin: 2%;
     position: relative;
     transform-style: preserve-3d;
-    transition: 1s ease;
+    transition: 0.7s ease;
 }
 
 .carteCachee, .carteRevelee {
@@ -44,5 +44,11 @@
 
 .carte.flip { /* L'évènement qui se déclenche au clic */
     transform: perspective(400px) rotateY(180deg);
+    pointer-events: none;
 }
 
+
+.carteValidee {
+    border: solid 3px green;
+    pointer-events: none;
+}
