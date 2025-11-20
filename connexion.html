@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-sm" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./src/memory-chat-logo.svg" alt="Logo" width="30" height="24"
+                        class="d-inline-block align-text-top">Memory</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Jeu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalScores">Meilleurs
+                                scores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profil.html">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="connexion.html" aria-current="page">Se connecter</a>
+                        </li>
+                    </ul>
+                    <a href="inscription.html" class="btn btn-outline me-2" type="button">S'inscrire</a>
+                    <!-- <button class="btn btn-outline-success me-2" type="button">S'inscrire</button> -->
+                </div>
+            </div>
+
+        </nav>
+
+        <!-- Modale des meilleures scores -->
+        <div class="modal fade text-center" id="modalScores" tabindex="-1" aria-labelledby="modalScores"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Meilleurs scores</h2>
+                        <p><a href="connexion.html">Connectez vous</a> pour consulter vos meilleurs scores</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="text-center">
+
+        <div class="enTete">
+            <h1>Connexion</h1>
+        </div>
+
+        <div class="separationPage">
+            <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Calque_1' enable-background='new 0 0 1024 40' viewBox='0 0 1024 40' x='0px' y='0px' width='1024px' height='40px' xmlns:xml='http://www.w3.org/XML/1998/namespace' xml:space='preserve' version='1.1'%3E%3Cpolygon fill='%23131a30' points='1024,0 512,40 0,0 0,0 1024,0' /%3E%3C/svg%3E">
+        </div>
+
+    </div>
+
+    <div class="formulaire">
+
+
+        <form action="" method="post">
+
+            <div class="unChamp">
+                <div class="labelForm">
+                    <label for="nomUserConnexion">Nom d'utilisateur</label>
+                </div>
+                <div class="champsForm">
+                    <input type="text" name="nomUserConnexion" id="nomUserConnexion"
+                        placeholder="Entrez votre nom d'utilisateur">
+                </div>
+            </div>
+
+            <div class="unChamp">
+                <div class="labelForm">
+                    <label for="mdpConnexion">Mot de passe</label>
+                </div>
+                <div class="champsForm">
+                    <input type="password" name="mdpConnexion" id="mdpConnexion"
+                        pattern="^^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" placeholder="Entrez votre mot de passe">
+                    <!-- <button type="button" id="btn-visibilite-password">
+                        <img src="images/eye-close.png" alt="Icône oeil fermé" id="oeil">
+                        </button> -->
+                </div>
+            </div>
+
+            <div class="boutonsForm">
+                <input type="button" value="Valider" id="valider" class="boutonValiderForm">
+                <a href="index.html" type="button" class="boutonAnnulerForm">Annuler</a>
+            </div>
+
+            <p class="phraseDejaInscrit">Pas de compte ? <a href="inscription.html">S'inscrire</a></p>
+
+        </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- <script src="../jquery-3.7.1.js"></script>-->
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
