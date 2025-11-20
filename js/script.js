@@ -5,6 +5,7 @@ $(function () {
   let verificationCarte2;
   let compteurClick = 0;
   let compteurCoups = 0;
+  let clickPossible = true;
 
 
   // ------------------------------------------------------------------------//
@@ -47,6 +48,9 @@ $(function () {
   // ------------------------------------------------------------------------ //
 
   $(".carte").on("click", function () {
+
+    if (!clickPossible) {return;}
+
     compteurClick++;
     console.log(compteurClick);
 
@@ -56,6 +60,9 @@ $(function () {
     }
 
     if (compteurClick == 2) {
+
+      clickPossible = false; // Empêcher le joueur de cliquer pendant l'animation
+
       $(this).addClass("flip");
       verificationCarte2 = $(this);
 
@@ -63,18 +70,14 @@ $(function () {
         // console.log("C'est une paire");
         verificationCarte1.addClass("carteValidee");
         verificationCarte2.addClass("carteValidee");
+        clickPossible = true;
       } else {
         setTimeout(function () {
           verificationCarte1.removeClass("flip");
           verificationCarte2.removeClass("flip");
+          clickPossible = true;
         }, 700);
 
-        // Bug du click trop rapide
-        // event.preventDefaultListener();
-        // $(".carte").removeEventListener('click'); // solution mais faut remettre derrière
-        // Faire des états flips onflip backflip ?
-        // Dans ce cas firstCard.classList.remove('flip') => remove tous les flips
-        //firstcard.removeEventListener('click', flipcard)
       }
 
       //console.log(compteurClick)
