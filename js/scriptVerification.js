@@ -15,17 +15,20 @@ let alerteMdpSymbole = $(".alerteMdpSymbole");
 let alerteMdpChiffre = $(".alerteMdpChiffre");
 let alerteMdpLongueur = $(".alerteMdpLongueur");
 
-let nomUser = document.getElementById("nomUser");
-let email = document.getElementById("email");
-let mdp = document.getElementById("mdp");
-let mdp2 = document.getElementById("mdp2");
+let nomUser = $("#nomUser");
+let email = $("#email");
+let mdp = $("#mdp");
+let mdp2 = $("#mdp2");
 
 const checkInscriptionNom = $(".checkInscriptionNom");
 const checkInscriptionEmail = $(".checkInscriptionEmail");
 const checkInscriptionMdp = $(".checkInscriptionMdp");
 const checkInscriptionMdp2 = $(".checkInscriptionMdp2");
 
-let boutonValider = document.getElementById("valider");
+let boutonValider = $("#valider");
+let visible = false;
+let visibiliteMdp = $(".visibiliteMdp1");
+let visibiliteMdp2 = $(".visibiliteMdp2");
 
 let validationNom = false;
 let validationMail = false;
@@ -34,7 +37,6 @@ let validationMdpSymbole = false;
 let validationMdpLongueur = false;
 let validationMdp = false;
 let validationMdp2 = false;
-
 
 alerteName.css('display', 'none');
 alerteMail.css('display', 'none');
@@ -49,9 +51,9 @@ checkInscriptionMdp2.css('display', 'none');
 // VERIFICATION DU NOM //
 // ------------------------------------------------------------------------ //
 
-nomUser.addEventListener("input", () => {
+nomUser.on("input", () => {
 
-    if ( nomUser.value.length < 3){
+    if ( nomUser.val().length < 3){
         alerteName.css('display', 'block');
         validationNom = false;
         checkInscriptionNom.css('display', 'none')
@@ -69,15 +71,15 @@ nomUser.addEventListener("input", () => {
 // VERIFICATION DU MAIL //
 // ------------------------------------------------------------------------ //
 
-email.addEventListener("input", () => { 
+email.on("input", () => { 
 
-    if (email.value.match(regexMail) ) {
+    if (email.val().match(regexMail) ) {
         alerteMail.css('display', 'none');
-        validationMail = true
+        validationMail = true;
         checkInscriptionEmail.css('display', 'inline')
     } else {
         alerteMail.css('display', 'block');
-        validationMail = false
+        validationMail = false;
         checkInscriptionEmail.css('display', 'none')
     }
 
@@ -86,12 +88,32 @@ email.addEventListener("input", () => {
 
 
 // ------------------------------------------------------------------------ //
+// VISIBILITE DU MDP //
+// ------------------------------------------------------------------------ //
+
+function visibilite(cadenas, mdp){
+    if(!visible){
+        visible = true;
+        cadenas.attr("src", "./src/lockOpen.svg");
+        mdp.attr("type", "text")
+    }
+    else {
+        visible = false;
+        cadenas.attr("src", "./src/lockClose.svg");
+        mdp.attr("type", "password")
+    }
+}   
+    
+visibiliteMdp.on("click", () => { visibilite(visibiliteMdp, mdp)});
+
+
+// ------------------------------------------------------------------------ //
 // VERIFICATION DU MDP //
 // ------------------------------------------------------------------------ //
 
-mdp.addEventListener("input", () => { 
+mdp.on("input", () => { 
 
-    if (mdp.value.match( /[0-9]/ )){
+    if (mdp.val().match( /[0-9]/ )){
         alerteMdpChiffre.css('color', '#585858');
         validationMdpChiffre = true;
     } else {
@@ -99,7 +121,7 @@ mdp.addEventListener("input", () => {
         validationMdpChiffre = false;
     }
 
-    if (mdp.value.length < 6 ){
+    if (mdp.val().length < 6 ){
         alerteMdpLongueur.css('color', '#ff6262');
         validationMdpLongueur = false;
     } else {
@@ -107,7 +129,7 @@ mdp.addEventListener("input", () => {
         validationMdpLongueur = true;
     }
 
-    if (mdp.value.match( /[! @#$%^&*]/ )){
+    if (mdp.val().match( /[! @#$%^&*]/ )){
         alerteMdpSymbole.css('color', '#585858');
         validationMdpSymbole = true;
     } else {
@@ -115,7 +137,7 @@ mdp.addEventListener("input", () => {
         validationMdpSymbole = false;
     }
 
-    if ( validationMdpChiffre===true && validationMdpLongueur===true && validationMdpSymbole===true ) {
+    if ( validationMdpChiffre==true && validationMdpLongueur==true && validationMdpSymbole==true ) {
         validationMdp = true;
         checkInscriptionMdp.css('display', 'inline')
     } else {
@@ -127,14 +149,16 @@ mdp.addEventListener("input", () => {
 
 });
 
+
 // ------------------------------------------------------------------------ //
 // VERIFICATION DU MDP 2 (CONFIRMATION) //
 // ------------------------------------------------------------------------ //
 
+visibiliteMdp2.on("click", () => { visibilite(visibiliteMdp2, mdp2)});
 
-mdp2.addEventListener("input", () => {
+mdp2.on("input", () => {
 
-    if ( mdp.value !== mdp2.value) {
+    if ( mdp.val() !== mdp2.val()) {
         alerteMdpConfirmation.css('display', 'block');
         validationMdp2 = false;
         checkInscriptionMdp2.css('display', 'none')
@@ -155,10 +179,10 @@ mdp2.addEventListener("input", () => {
 
 function deblocageBoutonValider(){
     
-    if ( validationMail===true && validationMdp===true && validationMdp2===true && validationNom===true ){
-        boutonValider.disabled = false;
+    if ( validationMail==true && validationMdp==true && validationMdp2==true && validationNom==true ){
+       boutonValider.removeAttr("disabled")
     } else {
-        boutonValider.disabled = true;
+        boutonValider.attr("disabled", "disabled")
     }
 }
 
@@ -167,7 +191,7 @@ function deblocageBoutonValider(){
 // CHANGEMENT DE COMPORTEMENT DU BOUTON VALIDER //
 // ------------------------------------------------------------------------ //
 
-boutonValider.addEventListener("click", (event) => {
+boutonValider.on("click", (event) => {
     event.preventDefault();
     window.open("http://127.0.0.1:5500/connexion.html");
 })

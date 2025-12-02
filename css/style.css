@@ -257,6 +257,13 @@ svg {
   width: 15px;
 }
 
+.visibiliteMdp1,
+.visibiliteMdp2 {
+  width: 17px;
+  cursor: pointer;
+  vertical-align:text-bottom;
+}
+
 input {
   width: 100%;
   height: 2.5em;
@@ -313,8 +320,8 @@ input {
 }
 
 .boutonAnnulerForm:hover {
-  color: rgba(231, 91, 112, 1);
-  border: solid 1px rgba(231, 91, 112, 1);
+  color: #ff6262;
+  border: solid 1px #ff6262;
   transition: ease-in-out 0.2s;
 }
 
