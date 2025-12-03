@@ -48,6 +48,17 @@ checkInscriptionMdp2.css('display', 'none');
 
 
 // ------------------------------------------------------------------------ //
+// CREATION D'UN TABLEAU DANS LE LOCALSTORAGE POUR STOCKER LES ID USER
+// ------------------------------------------------------------------------ //
+
+let tableauUser = JSON.parse(localStorage.getItem('logUsers'));
+
+if ( tableauUser == null ){
+    tableauUser = [];
+}
+
+
+// ------------------------------------------------------------------------ //
 // VERIFICATION DU NOM //
 // ------------------------------------------------------------------------ //
 
@@ -62,6 +73,7 @@ nomUser.on("input", () => {
         validationNom = true;
         checkInscriptionNom.css('display', 'inline');
     }
+
 
     deblocageBoutonValider()
 })
@@ -191,9 +203,20 @@ function deblocageBoutonValider(){
 // CHANGEMENT DE COMPORTEMENT DU BOUTON VALIDER //
 // ------------------------------------------------------------------------ //
 
+
 boutonValider.on("click", (event) => {
+
     event.preventDefault();
+
+    // Création d'un profil utilisateur dans le local storage
+
+    tableauUser.push( {'nom' : nomUser.val(), 'email' : email.val(), 'mdp' : mdp.val()} );
+    localStorage.setItem('logUsers', JSON.stringify(tableauUser));
+
+    console.log(tableauUser)
+    // Redirection vers la page de connexion
     window.open("http://127.0.0.1:5500/connexion.html");
+
 })
 
 
