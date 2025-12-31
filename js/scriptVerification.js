@@ -9,6 +9,8 @@ $(function () {
 const regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 let alerteName = $(".alerteName");
+let alerteDispoName = $(".alerteDispoName");
+let alerteDispoMail = $(".alerteDispoMail");
 let alerteMail = $(".alerteMail");
 let alerteMdpConfirmation = $(".alerteMdpConfirmation");
 let alerteMdpSymbole = $(".alerteMdpSymbole");
@@ -39,6 +41,8 @@ let validationMdp = false;
 let validationMdp2 = false;
 
 alerteName.css('display', 'none');
+alerteDispoName.css('display', 'none');
+alerteDispoMail.css('display', 'none');
 alerteMail.css('display', 'none');
 alerteMdpConfirmation.css('display', 'none');
 checkInscriptionNom.css('display', 'none');
@@ -64,19 +68,33 @@ if ( tableauUser == null ){
 
 nomUser.on("input", () => {
 
+    validationNom = false;
+
     if ( nomUser.val().length < 3){
         alerteName.css('display', 'block');
-        validationNom = false;
-        checkInscriptionNom.css('display', 'none')
+        alerteDispoName.css('display', 'none');
+        checkInscriptionNom.css('display', 'none');
+        deblocageBoutonValider();
     } else { 
         alerteName.css('display', 'none') ;
-        validationNom = true;
-        checkInscriptionNom.css('display', 'inline');
+        for (i=0; i < tableauUser.length; i++){
+            if ( nomUser.val() === tableauUser[i].nom ){
+                alerteDispoName.css('display', 'block');
+                checkInscriptionNom.css('display', 'none');
+                validationNom = false;
+                deblocageBoutonValider();
+                return;
+            } 
+            else {
+                alerteDispoName.css('display', 'none');
+                checkInscriptionNom.css('display', 'inline');
+                validationNom = true;
+                deblocageBoutonValider();
+            }
+        }
     }
 
-
-    deblocageBoutonValider()
-})
+});
 
 
 // ------------------------------------------------------------------------ //
@@ -85,17 +103,31 @@ nomUser.on("input", () => {
 
 email.on("input", () => { 
 
-    if (email.val().match(regexMail) ) {
-        alerteMail.css('display', 'none');
-        validationMail = true;
-        checkInscriptionEmail.css('display', 'inline')
-    } else {
+    if (!email.val().match(regexMail) ) {
         alerteMail.css('display', 'block');
+        alerteDispoMail.css('display', 'none');
         validationMail = false;
-        checkInscriptionEmail.css('display', 'none')
+        checkInscriptionEmail.css('display', 'none');
+        deblocageBoutonValider();
+    } else {
+        alerteMail.css('display', 'none');
+        for (i=0; i < tableauUser.length; i++){
+            if ( email.val() === tableauUser[i].email ){
+                alerteDispoMail.css('display', 'block');
+                checkInscriptionEmail.css('display', 'none');
+                validationMail = false;
+                deblocageBoutonValider();
+                return;
+            } else {
+                alerteDispoMail.css('display', 'none');
+                validationMail = true;
+                checkInscriptionEmail.css('display', 'inline');
+                deblocageBoutonValider();
+            }
+        }
     }
 
-    deblocageBoutonValider()
+
 });
 
 

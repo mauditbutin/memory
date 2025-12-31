@@ -284,7 +284,9 @@ input {
 
 .alerteName,
 .alerteMail,
-.alerteMdpConfirmation {
+.alerteMdpConfirmation,
+.alerteDispoName,
+.alerteDispoMail {
   margin-top: 0.2em;
   color: #ff6262;
   font-size: 0.8em;
