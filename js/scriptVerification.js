@@ -247,7 +247,7 @@ boutonValider.on("click", (event) => {
 
     console.log(tableauUser)
     // Redirection vers la page de connexion
-    window.open("http://127.0.0.1:5500/connexion.html");
+    window.location.replace("http://127.0.0.1:5500/connexion.html");
 
 })
 

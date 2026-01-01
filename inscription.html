@@ -31,42 +31,17 @@
                             <a class="nav-link" href="index.html">Jeu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalScores">Meilleurs
-                                scores</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="profil.html">Profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="connexion.html">Se connecter</a>
+                            <a class="nav-link" href="inscription.html" aria-current="page">Inscription</a>
                         </li>
                     </ul>
-                    <a href="inscription.html" class="btn btn-outline me-2" aria-current="page"
-                        type="button">S'inscrire</a>
-                    <!-- <button class="btn btn-outline-success me-2" type="button">S'inscrire</button> -->
+                    <a href="connexion.html" class="btnConnexion btn btn-outline me-2" type="button">Connexion</a>
                 </div>
             </div>
 
         </nav>
-
-        <!-- Modale des meilleures scores -->
-        <div class="modal fade text-center" id="modalScores" tabindex="-1" aria-labelledby="modalScores"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h2>Meilleurs scores</h2>
-                        <p><a href="connexion.html">Connectez vous</a> pour consulter vos meilleurs scores</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </header>
 
@@ -120,9 +95,6 @@
                 <div class="champsForm">
                     <input type="password" name="mdp" id="mdp" pattern="^^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
                         placeholder="Votre mot de passe">
-                    <!-- <button type="button" id="btn-visibilite-password">
-                        <img src="images/eye-close.png" alt="Icône oeil fermé" id="oeil">
-                        </button> -->
                     <p class="phraseAideMdp">Au moins <span class="alerteMdpSymbole">un symbole</span>, <span class="alerteMdpChiffre">un chiffre</span> et <span class="alerteMdpLongueur">6 caractères minimum</span></p>
                 </div>
             </div>
@@ -157,6 +129,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- <script src="../jquery-3.7.1.js"></script>-->
+    <script src="./js/scriptNavbar.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/scriptVerification.js"></script>
 
