@@ -58,9 +58,34 @@
 
     </div>
 
-    <div class="bodyProfil">
+    <div class="bodyProfil profilDeconnecte">
 
-        <p class="phraseProfil"><a href="inscription.html">Inscrivez-vous</a> pour modifier vos préférences de jeu.</p>
+        <p class="phraseProfil"><a href="inscription.html">Inscrivez-vous</a> pour enregistrer vos meilleurs scores.</p>
+
+    </div>
+
+    <div class="bodyProfil profilConnecte">
+
+        <div class="enTeteProfilConnecte">
+            <h2>Bonjour <span class="nomUserConnecte">nom</span></h2>
+            <p>Une petite partie ?</p>
+            <img class="couronneScores" src="./src/couronneScores.svg">
+            <p>Vos meilleurs scores :</p>
+        </div>
+
+       
+        <div class="scoresVides">
+            <p>Vous n'avez aucun score enregistré.<br>
+            Jouez en étant connecté pour sauvegarder les 10 meilleurs&nbsp;!</p>
+        </div>
+        <div class="meilleursScores">
+            <div class="dataScoreTemplate">
+                <p><span class="texteGras"><span class="scoreNbCoup">test</span> coups </span>
+                    le <span class="scoreDate">test</span> 
+                    à <span class="scoreHeure">test</span>
+                </p>
+            </div>
+        </div>
 
     </div>
 
@@ -71,6 +96,7 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- <script src="../jquery-3.7.1.js"></script>-->
     <script src="./js/scriptNavbar.js"></script>
+    <script src="./js/scriptConnexion.js"></script>
     <script src="./js/script.js"></script>
 
 </body>

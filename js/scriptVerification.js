@@ -77,6 +77,13 @@ nomUser.on("input", () => {
         deblocageBoutonValider();
     } else { 
         alerteName.css('display', 'none') ;
+        if (tableauUser.length == 0){
+            alerteDispoName.css('display', 'none');
+            checkInscriptionNom.css('display', 'inline');
+            validationNom = true;
+            deblocageBoutonValider();
+            return;
+        }
         for (i=0; i < tableauUser.length; i++){
             if ( nomUser.val() === tableauUser[i].nom ){
                 alerteDispoName.css('display', 'block');
@@ -111,6 +118,13 @@ email.on("input", () => {
         deblocageBoutonValider();
     } else {
         alerteMail.css('display', 'none');
+        if (tableauUser.length == 0){
+            alerteDispoMail.css('display', 'none');
+            validationMail = true;
+            checkInscriptionEmail.css('display', 'inline');
+            deblocageBoutonValider();
+            return;
+        }
         for (i=0; i < tableauUser.length; i++){
             if ( email.val() === tableauUser[i].email ){
                 alerteDispoMail.css('display', 'block');
@@ -242,7 +256,7 @@ boutonValider.on("click", (event) => {
 
     // Création d'un profil utilisateur dans le local storage
 
-    tableauUser.push( {'nom' : nomUser.val(), 'email' : email.val(), 'mdp' : mdp.val()} );
+    tableauUser.push( {'nom' : nomUser.val(), 'email' : email.val(), 'mdp' : mdp.val(), 'scores' : []} );
     localStorage.setItem('logUsers', JSON.stringify(tableauUser));
 
     console.log(tableauUser)

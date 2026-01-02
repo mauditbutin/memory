@@ -7,6 +7,10 @@ $(function () {
   let compteurCoups = 0;
   let clickPossible = true;
 
+  let tableauUser = JSON.parse(localStorage.getItem('logUsers'));
+  let etatConnexion = localStorage.getItem('etatConnexion');
+  let nomUserConnecte = localStorage.getItem('nomConnecte');
+
 
   // ------------------------------------------------------------------------//
   // Reset du plateau //
@@ -52,7 +56,6 @@ $(function () {
     if (!clickPossible) {return;}
 
     compteurClick++;
-    console.log(compteurClick);
 
     if (compteurClick == 1) {
       $(this).addClass("flip");
@@ -67,7 +70,6 @@ $(function () {
       verificationCarte2 = $(this);
 
       if (paireCartes(verificationCarte1, verificationCarte2)) {
-        // console.log("C'est une paire");
         verificationCarte1.addClass("carteValidee");
         verificationCarte2.addClass("carteValidee");
         clickPossible = true;
@@ -77,10 +79,8 @@ $(function () {
           verificationCarte2.removeClass("flip");
           clickPossible = true;
         }, 700);
-
       }
 
-      //console.log(compteurClick)
       compteurClick = 0;
       compteurCoups++;
       $(".affichageNbCoups").text(compteurCoups);
@@ -89,6 +89,28 @@ $(function () {
     if (toutValide()) {
       setTimeout(function () {
         alert("Vous avez gagné en " + compteurCoups + " coups ! Bravo !");
+
+        // Enregistrement du score dans le localStorage
+        if (etatConnexion === "connecte"){
+          for (i=0; i<tableauUser.length; i++){
+            if (tableauUser[i].nom === nomUserConnecte){
+              let datePartie = new Date();
+              tableauUser[i]['scores'].push ({ 'score' : compteurCoups, 'date' : datePartie.getDate() + "/" + datePartie.getMonth()+1 + "/" + datePartie.getFullYear(), 'heure' : datePartie.getHours() + "h" + datePartie.getMinutes() });
+
+              tableauUser[i]['scores'].sort( function(a, b){
+                return a.score - b.score;
+              } );
+
+              if (tableauUser[i]['scores'].length > 10){
+                tableauUser[i]['scores'].length = 10;
+              }
+
+              localStorage.setItem('logUsers', JSON.stringify(tableauUser));
+              return;
+            }
+          }
+        }
+
       }, 500);
     }
   });

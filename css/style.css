@@ -348,9 +348,52 @@ input {
   border-radius: 20px;
 }
 
-.phraseProfil {
+.phraseProfil,
+.enTeteProfilConnecte {
   text-align: center;
   margin: 0;
+}
+
+.profilDeconnecte,
+.profilConnecte,
+.scoresVides,
+.meilleursScores,
+.dataScoreTemplate {
+  display: none;
+  text-align: center;
+}
+
+.couronneScores{
+  margin-top: 1vh;
+  width: 25px;
+  fill: #ff6262;
+}
+
+.cloneDataScore {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1vh;
+  background-color: #efefef;
+  border-radius: 20px;
+}
+
+.scoresVides p{
+  background-color: #efefef;
+  border-radius: 10px;
+  padding: 5%;
+  margin-bottom: 0;
+}
+
+.cloneDataScore p{
+  margin: 1%;
+}
+
+.meilleurScore{
+  background-color: rgb(190, 255, 187);
+}
+
+.texteGras{
+  font-weight: 600;
 }
 
 /* --------------------------------------------------- */
