@@ -95,7 +95,7 @@ $(function () {
           for (i=0; i<tableauUser.length; i++){
             if (tableauUser[i].nom === nomUserConnecte){
               let datePartie = new Date();
-              tableauUser[i]['scores'].push ({ 'score' : compteurCoups, 'date' : datePartie.getDate() + "/" + datePartie.getMonth()+1 + "/" + datePartie.getFullYear(), 'heure' : datePartie.getHours() + "h" + datePartie.getMinutes() });
+              tableauUser[i]['scores'].push ({ 'score' : compteurCoups, 'date' : datePartie.getDate().toString().padStart(2, '0') + "/" + datePartie.getMonth()+1 + "/" + datePartie.getFullYear(), 'heure' : datePartie.getHours().toString().padStart(2, '0') + "h" + datePartie.getMinutes().toString().padStart(2, '0') });
 
               tableauUser[i]['scores'].sort( function(a, b){
                 return a.score - b.score;

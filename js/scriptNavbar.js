@@ -45,14 +45,14 @@ if ( etatConnexion === 'connecte'){
 
         if ( etatConnexion === 'deconnecte'){
             event.preventDefault();
-            window.location.replace("http://127.0.0.1:5500/connexion.html");
+            window.location.replace("connexion.html");
         }
 
         if ( etatConnexion === 'connecte'){
             event.preventDefault();
             localStorage.setItem('etatConnexion', 'deconnecte');
             localStorage.removeItem('nomConnecte');
-            window.location.replace("http://127.0.0.1:5500/connexion.html");
+            window.location.replace("connexion.html");
         }
 
     })

@@ -37,7 +37,7 @@ $(function () {
                 localStorage.setItem('etatConnexion', 'connecte');
                 nomUserEnregistre = tableauUser[i].nom;
                 tableauScores = tableauUser[i]['scores'];
-                window.location.replace("http://127.0.0.1:5500/profil.html");
+                window.location.replace("profil.html");
                 return;
             } 
         }
