@@ -22,7 +22,7 @@
                         class="d-inline-block align-text-top">Memory</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    aria-expanded="false" aria-label="Ouvrir le menu de navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
@@ -37,7 +37,7 @@
                             <a class="nav-link" href="inscription.html">Inscription</a>
                         </li>
                     </ul>
-                    <a href="connexion.html" class="btnConnexion btn btn-outline me-2" type="button">Connexion</a>
+                    <a href="connexion.html" class="btnConnexion btn btn-outline me-2">Connexion</a>
                 </div>
             </div>
 
@@ -45,46 +45,48 @@
 
     </header>
 
-    <div class="text-center">
+    <main id="contenu-principal" >
 
-        <div class="enTete">
+        <div class="enTete text-center">
             <h1>Profil</h1>
         </div>
 
         <div class="separationPage"></div>
 
-    </div>
+    
 
-    <div class="bodyProfil profilDeconnecte">
+        <div class="bodyProfil profilDeconnecte" role="region">
 
-        <p class="phraseProfil"><a href="inscription.html">Inscrivez-vous</a> pour enregistrer vos meilleurs scores.</p>
+            <p class="phraseProfil"><a href="inscription.html">Inscrivez-vous</a> pour enregistrer vos meilleurs scores.</p>
 
-    </div>
-
-    <div class="bodyProfil profilConnecte">
-
-        <div class="enTeteProfilConnecte">
-            <h2>Bonjour <span class="nomUserConnecte">nom</span></h2>
-            <p>Une petite partie ?</p>
-            <img class="couronneScores" src="./src/couronneScores.svg">
-            <p>Vos meilleurs scores :</p>
         </div>
 
-       
-        <div class="scoresVides">
-            <p>Vous n'avez aucun score enregistré.<br>
-            Jouez en étant connecté pour sauvegarder les 10 meilleurs&nbsp;!</p>
-        </div>
-        <div class="meilleursScores">
-            <div class="dataScoreTemplate">
-                <p><span class="texteGras"><span class="scoreNbCoup">test</span> coups </span>
-                    le <span class="scoreDate">test</span> 
-                    à <span class="scoreHeure">test</span>
-                </p>
+        <div class="bodyProfil profilConnecte" role="region">
+
+            <div class="enTeteProfilConnecte">
+                <h2>Bonjour <span class="nomUserConnecte">nom</span></h2>
+                <p>Une petite partie ?</p>
+                <img class="couronneScores" src="./src/couronneScores.svg" alt="" aria-hidden="true">
+                <p>Vos meilleurs scores :</p>
             </div>
-        </div>
 
-    </div>
+        
+            <div class="scoresVides" role="alert" aria-live="assertive">
+                <p>Vous n'avez aucun score enregistré.<br>
+                Jouez en étant connecté pour sauvegarder les 10 meilleurs&nbsp;!</p>
+            </div>
+            <div class="meilleursScores" aria-live="polite" role="list">
+                <div class="dataScoreTemplate" role="listitem">
+                    <p><span class="texteGras"><span class="scoreNbCoup">test</span> coups </span>
+                        le <span class="scoreDate">test</span> 
+                        à <span class="scoreHeure">test</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

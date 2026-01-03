@@ -1,0 +1,13 @@
+Licences des illustrations et médias de ce projet :
+
+Toutes les illustrations, images et icônes créées pour ce projet
+sont protégées par une licence Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0).
+
+Vous pouvez :
+- Partager (copier et redistribuer les images)
+- Adapter (modifier, transformer, créer à partir)
+
+Mais **uniquement à des fins non commerciales**.
+
+Vous devez toujours mentionner l'auteur original : Maud Butin
+Pour plus d’informations : https://creativecommons.org/licenses/by-nc/4.0/
